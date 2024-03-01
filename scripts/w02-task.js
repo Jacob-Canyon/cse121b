@@ -37,6 +37,7 @@ foodElement.innerHTML += `<br><strong>${favFoods}</strong>`;
 favFoods.pop();
 foodElement.innerHTML += `<br><strong>${favFoods}</strong>`;
 
+//done
 
 
 
