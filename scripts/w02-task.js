@@ -31,7 +31,11 @@ let favFoods = ["frybread", "mutton stew", "pizza","bao", "tacos"];
 let addFood = "steak";
 foodElement.innerHTML = `<strong>${favFoods}</strong>`;
 favFoods.push(addFood);
-foodElement.innerHTML += `<br>${favFoods}`;
+foodElement.innerHTML += `<br><strong>${favFoods}</strong>`;
+favFoods.shift();
+foodElement.innerHTML += `<br><strong>${favFoods}</strong>`;
+favFoods.pop();
+foodElement.innerHTML += `<br><strong>${favFoods}</strong>`;
 
 
 
