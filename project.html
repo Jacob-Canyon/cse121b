@@ -24,21 +24,76 @@
         </ul>
       </nav>
 
-      <select id="filtered" title="Choose a data filter.">
-        <option value="" disabled selected>Filter Temples</option>
-        <option value="utah">Utah</option>
-        <option value="notutah">Outside of Utah</option>
-        <option value="older">Built Before 1950</option>
-        <option value="all">No Filter</option>
-      </select>
+      <main id="project">
+        <h1>Shamely Attendence System</h1>
 
+        <div>
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" name="firstName">
+
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" name="lastName">
+        </div>
+        <div>
+            <label for="teacher">Homeroom Teacher</label>
+            <input type="text" id="teacher" name="teacher">
+        </div>
+
+        
+        <div>
+            <button id="reset">Clear</button>
+        </div>
+
+        <div>
+            <select title="Grade" id="grade">
+                <option value="" disabled selected>Grade</option>
+                <option value="0">Pre-K</option>
+                <option value="1" >1st</option>
+                <option value="2" >2nd</option>
+                <option value="3" >3rd</option>
+                <option value="4" >4th</option>
+                <option value="5" >5th</option>
+                <option value="6" >6th</option>
+                <option value="7" >7th</option>
+                <option value="8" >8th</option>
+        </select>
+        </div>
+        <div>
+
+        <select title="Excused" id="excuse">
+            <option value="" disabled selected>Exused</option>
+            <option value="excused">Excused</option>
+            <option value="unexcused">Unexcused</option>
+        </select>
+        </div>
+
+        <div>
+            <button id="submit">Submit</button>
+        </div>
+
+
+        <select id="filtered" title="Choose a data filter.">
+            <option value="" disabled selected>Filters</option>
+            <option value="middle">Middle School</option>
+            <option value="elementary">Elementary School</option>
+            <option value="unexcused">unexcused</option>
+            <option value="all">No Filter</option>
+          </select>
+
+          <button id="fetch">Display Late Students</button>
+    
+      </main>
+
+
+      
     <footer>
         &copy;<span id="year"></span> | About Me | CSE 121b
     </footer>
     <script src="scripts/main.js"></script>
   <script>
     document.getElementById("year").innerHTML = new Date().getFullYear();
-  </script>   
+  </script>  
+  <script src="scripts/project.js"></script>
 </body>
 
 </html>

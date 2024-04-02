@@ -314,4 +314,8 @@ footer {
         max-width: 950px;
     }
 
+    #project {
+        margin: auto 60px;
+    }
+
 }
