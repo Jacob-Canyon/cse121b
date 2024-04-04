@@ -14,20 +14,24 @@
 <body>
     <nav>
         <ul id="menu">
-          <li><a id="toggleMenu">&equiv;</a></li>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="w01-task.html">W1 Task</a></li>
-          <li><a href="w03-task.html">W3 Task</a></li>
-          <li><a href="w04-task.html" class="active">W4 Task</a></li>
-          <li><a href="w05-task.html">W5 Task</a></li>
-          <li><a href="project.html">Project</a></li>
-          <li><a href="latereport.html">Late Report</a></li>
+          
+            <li><a id="toggleMenu">&equiv;</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="w01-task.html">W1 Task</a></li>
+            <li><a href="w03-task.html">W3 Task</a></li>
+            <li><a href="w04-task.html" >W4 Task</a></li>
+            <li><a href="w05-task.html">W5 Task</a></li>
+            <li><a href="project.html"class="active">Project</a></li>
+            <li><a href="latereport.html">Late Report</a></li>
         
         </ul>
       </nav>
 
       <main id="project">
         <h1>Shamely Attendence System</h1>
+        <span id="datetime"></span>
+
+    
 
         <div>
             <label for="firstName">First Name</label>
@@ -36,15 +40,12 @@
             <label for="lastName">Last Name</label>
             <input type="text" id="lastName" name="lastName">
         </div>
+        
         <div>
             <label for="teacher">Homeroom Teacher</label>
             <input type="text" id="teacher" name="teacher">
         </div>
 
-        
-        <div>
-            <button id="reset">Clear</button>
-        </div>
 
         <div>
             <select title="Grade" id="grade">
@@ -58,12 +59,12 @@
                 <option value="6" >6th</option>
                 <option value="7" >7th</option>
                 <option value="8" >8th</option>
-        </select>
+            </select>
         </div>
         <div>
 
         <select title="Excused" id="excuse">
-            <option value="" disabled selected>Exused</option>
+            <option value="" disabled selected>Select</option>
             <option value="excused">Excused</option>
             <option value="unexcused">Unexcused</option>
         </select>
@@ -71,6 +72,7 @@
 
         <div>
             <button id="submit">Submit</button>
+            <button id="reset">Clear</button>
         </div>
 
 
@@ -80,9 +82,12 @@
             <option value="elementary">Elementary School</option>
             <option value="unexcused">unexcused</option>
             <option value="all">No Filter</option>
-          </select>
+        </select>
 
-          <button id="fetch">Display Late Students</button>
+          <button id="buttondisplay">Display Late Students</button>
+          <button id="download">Download</button>
+
+        <div id="display"></div>
     
       </main>
 

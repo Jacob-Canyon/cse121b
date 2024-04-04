@@ -1,15 +1,13 @@
-const firstName = document.querySelector('#firstName').value;
+let studentList = [];
 
-const lastName = document.querySelector('#lastName').value;
-
-const teacher = document.querySelector('#teacher').value;
-
-const grade = document.querySelector('#grade').value;
-
-const excused = document.querySelector('#excuse').value;
+let students = document.querySelector('#display');
 
 
-function submit(){
+
+
+
+function submit()
+{
     const firstName = document.querySelector('#firstName').value;
 
     const lastName = document.querySelector('#lastName').value;
@@ -20,21 +18,40 @@ function submit(){
 
     const excused = document.querySelector('#excuse').value;
 
+    var date = new Date;
+    var n = date.toDateString();
+    var time = date.toLocaleTimeString();
 
-let student = {
+
+
+
+
+let student = 
+{
     first: firstName,
     last: lastName,
     selectedTeacher: teacher,
-    selctedGrade: parseInt(grade),
-    selectedExcuse: excused
+    selectedGrade: parseInt(grade),
+    selectedExcuse: excused,
+    dateTime: `${time} ${n}`
 }
 
+studentList.push(student);
+
 console.log(student);
+console.log(studentList);
+
+
+reset();
+resetSelector();
+//download(jsonformat, 'json.txt', 'text/plain');
 }
+
 
 document.querySelector("#submit").addEventListener("click", ()=>{submit()});
 
-function reset(){
+function reset()
+{
 
     const firstName = document.querySelector('#firstName').value = "";
 
@@ -42,22 +59,121 @@ function reset(){
 
     const teacher = document.querySelector('#teacher').value = "";
 
-
 }
 
 document.querySelector('#reset').addEventListener("click", ()=>{reset()});
 
-function filterStudents(){
+document.querySelector('#reset').addEventListener("click", ()=>{resetSelector()});
 
-}
 
-document.querySelector('#fetch').addEventListener("click", ()=>{getStudentList()});
 
-async function getStudentList(){
-    const response = await fetch("https://byui-cse.github.io/cse121b-ww-course/resources/temples.json");
-    if (response.ok){
-        const students = await response.json();
-        console.log(students)
+function resetSelector()
+{
+    var elements = document.getElementsByTagName('select');
+    for (var i = 0; i <elements.length; i++)
+    {
+        elements[i].selectedIndex = 0;
     }
 }
 
+function updateDateTime()
+{
+    const now = new Date();
+
+    const currentDateTime = now.toLocaleString();
+
+    document. querySelector('#datetime').textContent = currentDateTime;
+}
+
+setInterval(updateDateTime, 1000);
+
+function displayStudents(studentList)
+{
+    resetDisplay(students)
+
+    studentList.forEach((student) => 
+    {
+        
+
+        let article = document.createElement("article");
+
+        let h3Name = document.createElement("h3");
+
+        let studentText = `Name: ${student.last.toUpperCase()}, ${student.first.toUpperCase()} Grade: ${student.selectedGrade} Teacher: ${student.selectedTeacher.toUpperCase()} \n ${student.dateTime} ${student.selectedExcuse.toUpperCase()}`
+
+        h3Name.innerText = studentText;
+
+        students.appendChild(article);
+        article.appendChild(h3Name);
+        
+    })
+
+}
+
+document.querySelector('#buttondisplay').addEventListener("click", ()=>{displayStudents(studentList)});
+
+function resetDisplay(list)
+{
+    while(list.firstChild){
+        list.firstChild.remove();
+    }
+}
+
+function filterStudents(list)
+{
+    let selection = document.querySelector('#filtered')
+    
+    resetDisplay(students);
+
+    switch(selection.value){
+        case "unexcused":
+            const unexcused = list.filter(data=>data.selectedExcuse.includes("unexused"));
+            displayStudents(unexcused);
+            break;
+
+        case "middle":
+            const middle = list.filter(data=>data.selectedGrade >= 6);
+            displayStudents(middle);
+            break;
+
+        case "older":
+            const mark = new Date(1950, 0, 1);
+            const older = temples.filter(data => Date.parse(data.dedicated) < mark);
+            displayTemples(older);
+
+            break;
+
+        case "all":
+
+            displayTemples(templeList);
+            break;
+    }
+
+}
+
+function download(content, fileName, contentType) {
+
+    var a = document.createElement("a");
+    var file = new Blob([content], {type: contentType});
+    a.href = URL.createObjectURL(file);
+    a.download = fileName;
+    a.click();
+}
+
+document.querySelector('#download').addEventListener("click", ()=>{download(JSON.stringify(studentList), 'latereport.txt', 'text/plain')})
+
+async function fetchStudnetList() {
+    const response = await fetch("https://github.com/Jacob-Canyon/hostingfile/blob/master/latereport2.json?raw=true");
+    if (response.ok){
+        const list = await response.json();
+        studentList = list;
+        console.log(list);
+      
+    }
+}
+
+
+fetchStudnetList();
+
+
+document.querySelector('#filtered').addEventListener("change", ()=>{filterStudents(studentList)});
