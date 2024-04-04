@@ -1,0 +1,42 @@
+[
+  {
+    "first": "Jacob",
+    "last": "Canyon",
+    "selectedTeacher": "canton",
+    "selectedGrade": 3,
+    "selectedExcuse": "unexcused",
+    "dateTime": "9:55:45 AM Thu Apr 04 2024"
+  },
+  {
+    "first": "john",
+    "last": "smith",
+    "selectedTeacher": "reyes",
+    "selectedGrade": 2,
+    "selectedExcuse": "unexcused",
+    "dateTime": "10:36:41 AM Thu Apr 04 2024"
+  },
+  {
+    "first": "jane",
+    "last": "doe",
+    "selectedTeacher": "teller",
+    "selectedGrade": 8,
+    "selectedExcuse": "unexcused",
+    "dateTime": "10:38:36 AM Thu Apr 04 2024"
+  },
+  {
+    "first": "beanie",
+    "last": "wells",
+    "selectedTeacher": "bruce",
+    "selectedGrade": 6,
+    "selectedExcuse": "excused",
+    "dateTime": "10:39:01 AM Thu Apr 04 2024"
+  },
+  {
+    "first": "jane",
+    "last": "doe",
+    "selectedTeacher": "richards",
+    "selectedGrade": 0,
+    "selectedExcuse": "excused",
+    "dateTime": "10:39:28 AM Thu Apr 04 2024"
+  }
+]
