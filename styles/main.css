@@ -283,6 +283,19 @@ footer {
     margin: .5rem;
 }
 
+
+#teacher {
+    margin: 20px 20px;
+}
+
+#datetime {
+    margin: 20px 20px;
+}
+
+#buttons{
+    margin: 20px 20px;
+}
+
 /* Media Queries */
 @media only screen and (min-width: 32.5em) {
     nav ul {
@@ -319,5 +332,6 @@ footer {
     #project {
         margin: auto 60px;
     }
+
 
 }

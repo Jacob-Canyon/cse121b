@@ -127,7 +127,7 @@ function filterStudents(list)
 
     switch(selection.value){
         case "unexcused":
-            const unexcused = list.filter(data=>data.selectedExcuse.includes("unexused"));
+            const unexcused = list.filter(data=>data.selectedExcuse.includes("unexcused"));
             displayStudents(unexcused);
             break;
 
@@ -136,16 +136,15 @@ function filterStudents(list)
             displayStudents(middle);
             break;
 
-        case "older":
-            const mark = new Date(1950, 0, 1);
-            const older = temples.filter(data => Date.parse(data.dedicated) < mark);
-            displayTemples(older);
+        case "elementary":
+            const elementary = list.filter(data=>data.selectedGrade <= 5);
+            displayStudents(elementary);
 
             break;
 
         case "all":
 
-            displayTemples(templeList);
+            displayStudents(studentList);
             break;
     }
 
@@ -163,7 +162,7 @@ function download(content, fileName, contentType) {
 document.querySelector('#download').addEventListener("click", ()=>{download(JSON.stringify(studentList), 'latereport.txt', 'text/plain')})
 
 async function fetchStudnetList() {
-    const response = await fetch("https://github.com/Jacob-Canyon/hostingfile/blob/master/latereport2.json?raw=true");
+    const response = await fetch("https://run.mocky.io/v3/fddfaa66-6b81-44b4-ba60-70fae3d527e0");
     if (response.ok){
         const list = await response.json();
         studentList = list;
